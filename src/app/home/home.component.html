@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Management of Product</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Commande</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+            </ul>
+  
+            <form class="form-inline my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary btn-number">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-sm ml-3" >
+                    <i class="fa fa-shopping-cart"></i> Cart   
+                </button>
+                &nbsp;
+                <button class="btn btn-success btn-sm ml-3" (click)="logoutBtn()" >
+                    <i class="fa fa-sign-out"></i> Logout   
+                </button>
+            </form>
+        </div>
+    </div>
+  </nav>
+  <br><br>
+  <div class="container">
+    <div class="row">
+            
+        <div class="col">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4" *ngFor="let prod of produit">
+                    <div class="card">
+                        <img class="card-img-top" src="/assets/image.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">{{prod.name}}</a></h4>
+                            <p class="card-text">{{prod.description}}</p>
+                            <p class="card-text">{{prod.categorie}}</p>
+                            <h4  class="card-text">{{prod.category}}</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">{{prod.price}} $</p>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-success btn-block" routerLink="/produit/{{prod._id}}">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-12">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+  
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>About</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                
+            </div>
+  
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informations</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="http://github.com">github.com</a></li>
+                    
+                </ul>
+            </div>
+  
+            
+  
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5 routerLink="/contact">Contact</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                   
+                    <li><i class="fa fa-envelope mr-2"></i> saberjdidi4@gmail.com</li>
+                    <li><i class="fa fa-phone mr-2"></i> + 216 26 44 06 78</li>
+        
+                </ul>
+            </div>
+            <div class="col-12 copyright mt-3">
+                
+                <p class="text-right text-muted">created by <i class="fa fa-heart"></i> <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>Saber</i></a> | <span>JDIDI</span></p>
+            </div>
+        </div>
+    </div>
+  </footer>

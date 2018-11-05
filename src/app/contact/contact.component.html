@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand" href="index.html">Management of Product</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+          <ul class="navbar-nav m-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" routerLink="/contact">Contact </a>
+              </li>
+          </ul>
+
+          <div class="form-inline my-2 my-lg-0">
+              <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                  <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary btn-number">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+              </div>
+              
+            </div>
+      </div>
+  </div>
+</nav>
+<br><br>
+<div class="container">
+        <h2>Contact :</h2>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <form [formGroup]="addForm">
+
+              <div class="form-group">
+                <label> <strong>Name</strong></label>
+                <input type="text" class="form-control" formControlName="name" placeholder="name">
+              </div>
+              <div class="form-group">
+                <label><strong>Email</strong></label>
+                <input type="text" class="form-control" formControlName="email" placeholder="email">
+              </div>
+              <div class="form-group">
+                <label><strong>Title</strong></label>
+                <input type="text" class="form-control" formControlName="title" placeholder="title">
+              </div>
+              <div class="form-group">
+                <label><strong>Message</strong></label>
+                <textarea class="form-control" formControlName="message">
+                
+              </textarea>
+              </div>
+              
+              <div class="form-group">
+                <label><strong>Etat</strong></label>
+                <input type="text" class="form-control" formControlName="etat" placeholder="etat">
+              </div>
+              
+              <input type="submit" value="Submit" (click)="contactBtn()" class="btn btn-primary " routerLink="/login">
+              <div class="clearfix"></div>
+            </form>
+          </div>
+      
+        </div>
+      </div>
+
+
+
+

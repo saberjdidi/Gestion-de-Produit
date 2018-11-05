@@ -1,0 +1,136 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand" href="index.html">Management of Product</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+          <ul class="navbar-nav m-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/fournisseur">Fournisseur</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" routerLink="/todo">Todo</a>
+              </li>
+          </ul>
+
+          <div class="form-inline my-2 my-lg-0">
+              <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                  <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary btn-number">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+              </div>
+              
+            </div>
+      </div>
+  </div>
+</nav>
+<br><br>
+<div class="container">
+        <h2>Todo :</h2>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <form [formGroup]="addForm">
+
+              <div class="form-group">
+                <label> <strong>Phone</strong></label>
+                <input type="text" class="form-control" formControlName="phone" placeholder="phone">
+              </div>
+              
+              <div class="form-group">
+                <label><strong>Address</strong></label>
+                <input type="text" class="form-control" formControlName="address" placeholder="address">
+              </div>
+              <div class="form-group">
+                <label><strong>Salary</strong></label>
+                <input type="text" class="form-control" formControlName="salary" placeholder="salary">
+              </div>
+              
+              <input type="submit" value="Submit" class="btn btn-primary " (click)="todoBtn()" >
+              <div class="clearfix"></div>
+            </form>
+          </div>
+      
+        </div>
+</div>
+<br><br>
+<div class="container">
+ <div class="widget stacked widget-table action-table">
+
+  <div class="widget-content">
+
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Salary</th> 
+          
+
+          <th class="td-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- {{user | json}} -->
+        <tr *ngFor="let frn of fournisseur; let i = index">
+            <td>{{i}}</td>
+          <td>{{frn.phone}}</td>
+          <td>{{frn.address}}</td>
+          <td>{{frn.salary}}</td>
+         
+          <td class="td-actions">
+           
+        
+            <button class="btn btn-danger" role="button" (click)="deleteTodoBtn(i)" >
+              Delete
+            </button> &nbsp;
+            <button class="btn btn-success" role="button" (click)="updateTodo = frn" >
+                Update
+              </button>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+    
+
+  </div>
+  <!-- /widget-content -->
+
+ </div>
+</div>
+
+<div class="container" *ngIf="updateTodo">
+  <h2>Todo :</h2>
+  <br>
+  <div class="row">
+    <div class="col-4">
+        <div class="form-group">
+          <label> <strong>Phone</strong></label>
+          <input type="text" class="form-control" [(ngModel)]="updateTodo.phone" placeholder="phone">
+        </div>
+        
+        <div class="form-group">
+          <label><strong>Address</strong></label>
+          <input type="text" class="form-control" [(ngModel)]="updateTodo.address" placeholder="address">
+        </div>
+        <div class="form-group">
+          <label><strong>Salary</strong></label>
+          <input type="text" class="form-control" [(ngModel)]="updateTodo.salary" placeholder="salary">
+        </div>
+        
+        <input type="submit" value="update" class="btn btn-default " (click)="updateTodoBtn(i)" >
+        <div class="clearfix"></div>
+    </div>
+
+  </div>
+</div>
+
